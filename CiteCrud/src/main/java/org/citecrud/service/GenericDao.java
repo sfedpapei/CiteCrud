@@ -1,7 +1,7 @@
 package org.citecrud.service;
 
 import java.util.List;
-import java.util.Set;
+
 
 public interface GenericDao<E, K, T> {
 
@@ -16,4 +16,8 @@ public interface GenericDao<E, K, T> {
 	List<E> list();
 	
 	List<E> findByName(T name);
+	
+	E findbyId(K key);
+
+
 }
