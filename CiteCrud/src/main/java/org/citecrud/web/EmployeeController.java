@@ -57,8 +57,8 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping("/employees/{employeeId}")
-	public String showOwner (@PathVariable("employeeId") int employeeIdModel, Model model) {
-		model.addAttribute("employee", employeeDao.find(employeeIdModel));
+	public String showEmployee (@PathVariable("employeeId") int employeeIdModel, Model model) {
+		model.addAttribute("employee", employeeDao.findbyId(employeeIdModel));
 		return "employees/employeeDetails";
 		
 	}
