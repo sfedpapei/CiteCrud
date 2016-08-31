@@ -62,11 +62,21 @@ public class EmployeeDaoImpl extends HibernateDao<Employee, Integer, String> imp
 		return false;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Employee> findByName(String name) {
 		Query findEmployeeByName = currentSession().createQuery("from Employee e where e.employeeName like:employeeName ");
 		findEmployeeByName.setParameter("employeeName", "%"+name+"%");
-		return findEmployeeByName.list();
+		return findEmployeeByName.list();//because list() will return a list but what type?
+	}
+	
+	@Override
+	public Employee findbyId(Integer employeeId) {
+		Query findEmployeeById = currentSession().createQuery("from Employee e where e.employeeId =:employeeId");
+		logger.info(findEmployeeById.toString());
+		findEmployeeById.setParameter("employeeId", employeeId);
+        return (Employee) findEmployeeById.uniqueResult();
+		
 	}
 
 }

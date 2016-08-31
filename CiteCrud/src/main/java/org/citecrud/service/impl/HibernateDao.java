@@ -71,4 +71,10 @@ public class HibernateDao<E, K extends Serializable, T> implements
 		return null;
 	}
 
+	//@Override
+	public E findbyId(K key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
